@@ -9,18 +9,14 @@ void main() {
           child: Text(
             'Welcome to Flutter!',
             style: TextStyle(
-
-
               fontSize: 28,
               fontWeight: FontWeight.bold,
               color: Colors.deepPurple,
               letterSpacing: 1.5,
-
             ),
           ),
         ),
       ),
-      
     ),
   );
 }

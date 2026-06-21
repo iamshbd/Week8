@@ -7,12 +7,10 @@ void main() {
       color: Colors.blue,
       child: Container(
         margin: const EdgeInsets.all(20),
-        
         padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-
           boxShadow: const [
             BoxShadow(
               color: Colors.black26,

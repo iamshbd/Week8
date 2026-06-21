@@ -26,11 +26,8 @@ class WelcomePage extends StatelessWidget {
               height: 120,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-
-
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
-
                   end: Alignment.bottomRight,
                   colors: [Colors.teal, Colors.tealAccent],
                 ),
@@ -44,7 +41,6 @@ class WelcomePage extends StatelessWidget {
             const SizedBox(height: 24),
             const Text(
               'Welcome Aboard!',
-
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -68,7 +64,6 @@ class WelcomePage extends StatelessWidget {
                   height: 100,
                   decoration: BoxDecoration(
                     color: Colors.amber.shade100,
-
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: const Column(
@@ -85,7 +80,6 @@ class WelcomePage extends StatelessWidget {
                 Container(
                   width: 100,
                   height: 100,
-
                   decoration: BoxDecoration(
                     color: Colors.blue.shade100,
                     borderRadius: BorderRadius.circular(16),
@@ -110,7 +104,6 @@ class WelcomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: const Column(
-
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.rocket_launch,
@@ -130,8 +123,6 @@ class WelcomePage extends StatelessWidget {
                 color: Colors.teal,
                 borderRadius: BorderRadius.circular(24),
               ),
-
-              
               child: const Text(
                 'Get Started',
                 style: TextStyle(
