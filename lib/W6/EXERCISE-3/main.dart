@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'ui/screens/welcome_screen.dart';
-import 'ui/screens/temperature_screen.dart';
 
 class TemperatureApp extends StatefulWidget {
-  
   final VoidCallback _onTap;
   const TemperatureApp({super.key, required this._onTap});
-
-
 
   @override
   State<TemperatureApp> createState() {
@@ -17,16 +13,6 @@ class TemperatureApp extends StatefulWidget {
 }
 
 class _TemperatureAppState extends State<TemperatureApp> {
-  bool showConverter = false;
-
-  void onStartPressed() {
-    setState(() {
-      showConverter = true;
-    });
-  }
-
-  
-
   @override
   Widget build(context) {
     return MaterialApp(
@@ -39,9 +25,7 @@ class _TemperatureAppState extends State<TemperatureApp> {
               end: Alignment.bottomRight,
             ),
           ),
-          
-          )
-      
+          child: const WelcomeScreen(),
         ),
       ),
     );
@@ -51,26 +35,3 @@ class _TemperatureAppState extends State<TemperatureApp> {
 void main() {
   runApp(const TemperatureApp());
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // child: showConverter
-  //             ? TemperatureScreen()
-  //             : WelcomeScreen(onStart: onStartPressed),
