@@ -45,7 +45,7 @@ class TodoCard extends StatelessWidget {
                   style: AppTheme.paragraph.copyWith(
                     decoration: textDecoration,
                     color: todo.completed
-                        ? AppTheme.textColor.withOpacity(0.5)
+                        ? AppTheme.textColor.withValues(alpha: 0.5)
                         : AppTheme.textColor,
                   ),
                 ),

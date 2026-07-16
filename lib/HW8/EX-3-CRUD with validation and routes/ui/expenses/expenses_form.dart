@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../models/expense.dart';
 
@@ -13,10 +12,24 @@ class ExpenseForm extends StatefulWidget {
 class _ExpenseFormState extends State<ExpenseForm> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
+  String? amountError;
 
   void onCheckPressed() {
     String title = _titleController.text;
-    double amount = double.parse(_amountController.text);
+    String amountText = _amountController.text;
+
+    double? amount = double.tryParse(_amountController.text);
+
+    if (amount == null || amount < 0 || amount > 100) {
+      setState(() {
+        amountError = "Please enter a number between 0 to 100.";
+      });
+      return;
+    }
+
+    setState(() {
+      amountError == null;
+    });
 
     Expense newExpense = Expense(
       amount: amount,
@@ -26,7 +39,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
     );
 
     Navigator.pop<Expense>(context, newExpense);
-  }                                    
+  }
 
   void onCancelPressed() {
     Navigator.pop(context);
@@ -41,7 +54,9 @@ class _ExpenseFormState extends State<ExpenseForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Scaffold(
+      appBar: AppBar(title: Text("Add item"),),
+      body: Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
@@ -53,15 +68,16 @@ class _ExpenseFormState extends State<ExpenseForm> {
 
           SizedBox(height: 20),
           TextField(
-            keyboardType: TextInputType.number,
-            inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.digitsOnly,
-            ],
+            // keyboardType: TextInputType.number,
+            // inputFormatters: <TextInputFormatter>[
+            //   FilteringTextInputFormatter.digitsOnly,
+            // ],
             controller: _amountController,
             maxLength: 50,
             decoration: InputDecoration(
               prefix: Text("\$"),
               label: const Text('Amount'),
+              errorText: amountError,
             ),
           ),
 
@@ -76,6 +92,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
           ),
         ],
       ),
+    ),
     );
   }
 }
